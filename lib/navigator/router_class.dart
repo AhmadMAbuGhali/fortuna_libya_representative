@@ -1,0 +1,34 @@
+import 'package:flutter/material.dart';
+
+class RouterClass {
+  RouterClass._();
+  static RouterClass routerClass = RouterClass._();
+  GlobalKey<NavigatorState> navKey = GlobalKey<NavigatorState>();
+  final GlobalKey<ScaffoldMessengerState> rootScaffoldMessengerKey = GlobalKey<ScaffoldMessengerState>();
+
+  pushWidget(Widget widget) {
+    navKey.currentState?.push(MaterialPageRoute(builder: (context) {
+      return widget;
+    }));
+  }
+
+  pushWidgetReplacement(Widget widget) {
+     navKey.currentState?.pushReplacement(MaterialPageRoute(builder: (context) {
+      return widget;
+    }));
+  }
+  pushWidgetRemovePrev(Widget widget){
+    navKey.currentState?.pushAndRemoveUntil(MaterialPageRoute(builder: (context) {
+    return widget;
+    }), (route) => false);
+
+  }
+
+  popFunction() {
+    navKey.currentState?.pop();
+  }
+
+  Map<String, Widget Function(BuildContext)> map = {
+      // 'NavHome': (context) => const MainNavBar(),
+  };
+}
