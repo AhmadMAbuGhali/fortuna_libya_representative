@@ -8,6 +8,14 @@ import 'package:fortuna_libya_representative/ui/screens/auth_screens/on_bording_
 import 'package:fortuna_libya_representative/ui/screens/auth_screens/otp_screen.dart';
 import 'package:fortuna_libya_representative/ui/screens/auth_screens/splash_screen.dart';
 import 'package:fortuna_libya_representative/ui/screens/home_screens/home_screen.dart';
+import 'package:fortuna_libya_representative/ui/screens/order/acrive_order.dart';
+import 'package:fortuna_libya_representative/ui/screens/order/active_order_details.dart';
+import 'package:fortuna_libya_representative/ui/screens/order/complete_order.dart';
+import 'package:fortuna_libya_representative/ui/screens/order/complete_order_detiles.dart';
+import 'package:fortuna_libya_representative/ui/screens/order/order_screen.dart';
+import 'package:fortuna_libya_representative/ui/screens/point/point_screen.dart';
+import 'package:fortuna_libya_representative/ui/screens/profile/profile_screen.dart';
+import 'package:fortuna_libya_representative/ui/screens/support/support_screen.dart';
 
 import 'package:provider/provider.dart';
 
@@ -49,6 +57,49 @@ class RouterX {
           ),
         );
 
+      case NavegatorConstant.order:
+        return MaterialPageRoute(
+          builder: (_) => ChangeNotifierProvider(
+            create: (context) => AuthProvider(),
+            child: OrderScreen(),
+          ),
+        );
+      case NavegatorConstant.completeOrderDetails:
+        return MaterialPageRoute(
+          builder: (_) => ChangeNotifierProvider(
+            create: (context) => AuthProvider(),
+            child: CompleteOrderDetails(),
+          ),
+        );
+      case NavegatorConstant.activeOrderDetails:
+        return MaterialPageRoute(
+          builder: (_) => ChangeNotifierProvider(
+            create: (context) => AuthProvider(),
+            child: ActiveOrderDetails(),
+          ),
+        );
+
+        case NavegatorConstant.profile:
+        return MaterialPageRoute(
+          builder: (_) => ChangeNotifierProvider(
+            create: (context) => AuthProvider(),
+            child: ProfileScreen(),
+          ),
+        );
+  case NavegatorConstant.support:
+        return MaterialPageRoute(
+          builder: (_) => ChangeNotifierProvider(
+            create: (context) => AuthProvider(),
+            child: SupportScreen(),
+          ),
+        );
+case NavegatorConstant.point:
+        return MaterialPageRoute(
+          builder: (_) => ChangeNotifierProvider(
+            create: (context) => AuthProvider(),
+            child: PointScreen(),
+          ),
+        );
 
 
 

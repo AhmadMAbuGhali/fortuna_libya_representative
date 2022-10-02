@@ -11,6 +11,9 @@ class NavegatorConstant {
   static const String homeApp = '/home';
 
   static const String order = '/order';
+  static const String completeOrderDetails = '/completeOrderDetails';
+  static const String activeOrderDetails = '/activeOrderDetails';
+  static const String orderDetails = '/orderDetails';
   static const String point = '/point';
   static const String profile = '/profile';
 

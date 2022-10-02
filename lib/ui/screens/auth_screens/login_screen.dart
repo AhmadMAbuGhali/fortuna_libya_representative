@@ -51,8 +51,8 @@ class LoginScreen extends StatelessWidget {
                   Padding(
                     padding:   EdgeInsets.symmetric(horizontal: 16.w),
                     child: CustomTextFormFiled(
-                      label: 'ينورتكلالا ديربلا',
-                      hint: 'انه ينورتكلالا ديربلا ةباتكب مق',
+                      label: 'البريد الالكتروني',
+                      hint: 'قم بكتابة البريد الالكتروني هنا',
                       controller: _userNameController,
                       enable: true,
                     ),
@@ -60,8 +60,8 @@ class LoginScreen extends StatelessWidget {
                   Padding(
                     padding:   EdgeInsets.symmetric(horizontal: 16.w),
                     child: CustomTextFormFiled(
-                      label: 'رورملا ةملك',
-                      hint: 'انه رورملا ةملك ةباتكب مق',
+                      label: 'كلمة المرور',
+                      hint: 'قم بكتابة كلمة مرور',
                       controller: _passwordController,
                       enable: true,
                     ),
@@ -114,7 +114,7 @@ class LoginScreen extends StatelessWidget {
                         child: ElevatedButton(onPressed: (){
                           RouterClass.routerClass
                               .navigateTo(NavegatorConstant.homeApp);
-                        }, child: Text('لوخدلا ليجست',style: getMediumStyle(color: ColorManager.white,fontSize: FontSize.s16),))),
+                        }, child: Text('تسجيل الدخول',style: getMediumStyle(color: ColorManager.white,fontSize: FontSize.s16),))),
                   ),
                   SizedBox(
                     height: 16.h,
@@ -123,10 +123,10 @@ class LoginScreen extends StatelessWidget {
                     text: TextSpan(
                       children: <TextSpan>[
                         TextSpan(
-                            text: ' ؟ باسح كيدل سيل',
+                            text: ' ليس لديك حساب؟',
                             style: getRegularStyle(color: ColorManager.primary,fontSize: FontSize.s14)),
                         TextSpan(
-                          text: ' باسح ءاشنا',
+                          text: 'انشاء حساب',
                           style: getBoldStyle(color:ColorManager.primary,fontSize: FontSize.s14),
                           // recognizer:  TapGestureRecognizer()..onTap = () => RouterClass.routerClass.popFunction()
 
@@ -136,80 +136,7 @@ class LoginScreen extends StatelessWidget {
                       ],
                     ),
                   ),
-                  // Container(
-                  //   width: MediaQuery.of(context).size.width,
-                  //   height: 44.h,
-                  //   padding: EdgeInsets.symmetric(horizontal: 16.w),
-                  //   child: ElevatedButton(
-                  //     onPressed: () {
-                  //       if (logFormkey.currentState!.validate()) {
-                  //         provider.changeIsLoading();
-                  //         logFormkey.currentState!.save();
-                  //         SentLogin sentLogin = SentLogin(
-                  //             username: _userNameController.text,
-                  //             password: _passwordController.text);
-                  //         provider.login(sentLogin);
-                  //         // Future.delayed(const Duration(seconds: 3), (){
-                  //         //   provider.changeIsLoading();
-                  //         // }
-                  //         // );
-                  //       }
-                  //     },
-                  //     child: provider.isLoading
-                  //         ? Row(
-                  //             mainAxisAlignment: MainAxisAlignment.center,
-                  //             children: [
-                  //               Text('تسجيل الدخول',
-                  //                   style: getMediumStyle(
-                  //                       color: ColorManager.white,
-                  //                       fontSize: FontSize.s16.sp)),
-                  //               const SizedBox(
-                  //                 width: 10,
-                  //               ),
-                  //               const CircularProgressIndicator(
-                  //                 color: Colors.white,
-                  //               ),
-                  //             ],
-                  //           )
-                  //         : Text(
-                  //             'تسجيل الدخول',
-                  //             style: getMediumStyle(
-                  //                 color: ColorManager.white,
-                  //                 fontSize: FontSize.s16.sp),
-                  //           ),
-                  //   ),
-                  // ),
-                  // SizedBox(
-                  //   height: 39.h,
-                  // ),
-                  // Padding(
-                  //   padding: EdgeInsets.symmetric(horizontal: 16.w),
-                  //   child: Stack(
-                  //     children: [
-                  //       Container(
-                  //         width: MediaQuery.of(context).size.width,
-                  //         height: 44.h,
-                  //         margin: EdgeInsets.only(right: 5.w),
-                  //         child: ElevatedButton(
-                  //             onPressed: () {
-                  //               // DioClient.dioClient.resetPassword('f','fdf','fdf');
-                  //             },
-                  //             style: ElevatedButton.styleFrom(
-                  //               primary: ColorManager.tapBarColor,
-                  //             ),
-                  //             child: Text('زيارة الموقع ',
-                  //                 style: getMediumStyle(
-                  //                     color: ColorManager.black,
-                  //                     fontSize: FontSize.s16.sp))),
-                  //       ),
-                  //       SvgPicture.asset(
-                  //         IconAssets.siteVist,
-                  //         width: 45,
-                  //         height: 45,
-                  //       ),
-                  //     ],
-                  //   ),
-                  // ),
+
                 ]),
           ),
         );
