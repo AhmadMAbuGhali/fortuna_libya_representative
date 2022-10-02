@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-
 class RouterClass {
   RouterClass._();
   static RouterClass routerClass = RouterClass._();
@@ -24,11 +23,16 @@ class RouterClass {
 
   }
 
+  Future<dynamic> navigateTo(String routeName, {Object? args}) {
+    return navKey.currentState!.pushNamed(routeName, arguments: args);
+  }
+  Future<dynamic> navigateToAndRemove(String routeName) {
+    return navKey.currentState!.pushNamedAndRemoveUntil(
+      routeName,
+          (_) => false,
+    );
+  }
   popFunction() {
     navKey.currentState?.pop();
   }
-
-  Map<String, Widget Function(BuildContext)> map = {
-      // 'NavHome': (context) => const MainNavBar(),
-  };
 }

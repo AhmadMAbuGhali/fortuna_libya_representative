@@ -13,6 +13,8 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
+  flutter_localizations:
+    sdk: flutter
 
 
 
@@ -23,6 +25,11 @@ dependencies:
   shared_preferences:
   dio:
   string_validator:
+  buttons_tabbar:
+  image_picker:
+  get_it:
+  easy_localization:
+  sms_autofill:
 
 dev_dependencies:
   flutter_test:
@@ -40,15 +47,16 @@ flutter:
   assets:
     - assets/images/
     - assets/icon/
+    - assets/language/
 
   fonts:
     - family: Dubai
       fonts:
-        - asset: fonts/Dubai-Bold.ttf
+        - asset: assets/fonts/Dubai-Bold.ttf
           weight: 700
-        - asset: fonts/Dubai-Medium.ttf
+        - asset: assets/fonts/Dubai-Medium.ttf
           weight: 500
-        - asset: fonts/Dubai-Regular.ttf
+        - asset: assets/fonts/Dubai-Regular.ttf
           weight: 400
-        - asset: fonts/Dubai-Light.ttf
+        - asset: assets/fonts/Dubai-Light.ttf
           weight: 300
