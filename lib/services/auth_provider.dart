@@ -1,4 +1,7 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
+import 'package:image_picker/image_picker.dart';
 
 class AuthProvider extends ChangeNotifier {
   AuthProvider();
@@ -31,5 +34,12 @@ class AuthProvider extends ChangeNotifier {
   TextEditingController registerEmailController=TextEditingController();
   TextEditingController registerAddressController=TextEditingController();
   TextEditingController registerLoginPasswordController=TextEditingController();
-
+// File
+  File? file;
+  String filename = 'لا يوجد';
+  pickNewImage() async {
+    XFile? file = await ImagePicker().pickImage(source: ImageSource.gallery);
+    this.file = File(file!.path);
+    notifyListeners();
+  }
 }

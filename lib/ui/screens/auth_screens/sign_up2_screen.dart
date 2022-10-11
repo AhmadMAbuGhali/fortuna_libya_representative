@@ -16,7 +16,6 @@ import '../../../services/auth_provider.dart';
 import '../../general_component/custom_text_form_filed.dart';
 
 class SignUpScreen2 extends StatelessWidget {
-  final TextEditingController _passwordController = TextEditingController();
   final GlobalKey<FormState> signFormkey = GlobalKey<FormState>();
 
   SignUpScreen2({Key? key}) : super(key: key);
@@ -101,16 +100,6 @@ class SignUpScreen2 extends StatelessWidget {
                       onChanged: (value) {},
                     ),
                   ),
-                  // Padding(
-                  //   padding:   EdgeInsets.symmetric(horizontal: 16.w),
-                  //   child: CustomTextFormFiled(
-                  //     label: 'المدينة ',
-                  //     hint: 'المدينة',
-                  //     controller: _userNameController,
-                  //     enable: true,
-                  //   ),
-                  // ),
-
                   CustomTextFeild(
                     controller: provider.forgetEmailController,
                     hintText: 'typePassword'.tr(),
@@ -134,42 +123,63 @@ class SignUpScreen2 extends StatelessWidget {
                         mainAxisAlignment: MainAxisAlignment.start,
                         children: [
                           Row(
-
                             children: [
-                            SizedBox(width: 16.w,),
+                              SizedBox(
+                                width: 16.w,
+                              ),
                               Text(
                                 'uploadImg',
                                 style: getMediumStyle(
-                                    color: ColorManager.black, fontSize: FontSize.s16),
+                                    color: ColorManager.black,
+                                    fontSize: FontSize.s16),
                               ).tr(),
                             ],
                           ),
-                          SizedBox(height: 10.h,),
-            Container(
-
-                child: DottedBorder(
-                  color: Colors.black,//color of dotted/dash line
-                  strokeWidth: 1, //thickness of dash/dots
-                  dashPattern: [5,6],
-                  //dash patterns, 10 is dash width, 6 is space width
-                  child: Container(  //inner container
-                    height: 50.h,
-                    width: 120.w,
-                    child: Row(
-                      children: [
-                        Icon(Icons.file_upload_outlined,color: ColorManager.black,),
-                        SizedBox(width: 15.w,),
-                        Text('uploadFile',style: getMediumStyle(
-                            color: ColorManager.black, fontSize: FontSize.s16),).tr()
-                      ],
-                    ),
-                )
-            ),
-          ),            ],
+                          SizedBox(
+                            height: 10.h,
+                          ),
+                          GestureDetector(
+                            onTap: () {
+                              provider.pickNewImage();
+                            },
+                            child: DottedBorder(
+                                color: Colors.black, //color of dotted/dash line
+                                strokeWidth: 1, //thickness of dash/dots
+                                dashPattern: const [5, 6],
+                                //dash patterns, 10 is dash width, 6 is space width
+                                child: provider.file == null?SizedBox(
+                                  height: 50.h,
+                                  width: 120.w,
+                                  child: Row(
+                                    children: [
+                                      Icon(
+                                        Icons.file_upload_outlined,
+                                        color: ColorManager.black,
+                                      ),
+                                      SizedBox(
+                                        width: 15.w,
+                                      ),
+                                      Text(
+                                        'uploadFile',
+                                        style: getMediumStyle(
+                                            color: ColorManager.black,
+                                            fontSize: FontSize.s16),
+                                      ).tr()
+                                    ],
+                                  ),
+                                ): Container(width: 120.w,height: 150.h,
+                                decoration: BoxDecoration(
+                                  image: DecorationImage(image:  FileImage(provider.file!),fit: BoxFit.fill)
+                                ),
+                                )),
+                          ),
+                        ],
                       ),
                     ],
                   ),
-                  SizedBox(height: 15.h,),
+                  SizedBox(
+                    height: 15.h,
+                  ),
                   Padding(
                     padding: EdgeInsets.symmetric(horizontal: 16.w),
                     child: SizedBox(
