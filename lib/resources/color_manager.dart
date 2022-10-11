@@ -19,4 +19,5 @@ class ColorManager {
   static Color otpDesc = const Color(0xff898A8E);
   static Color onBordIndecator = const Color(0xffD9D9D9);
   static Color borderTextFiel = const Color(0xffE5E5E5);
+  static Color shadow = const Color(0xff707070);
 }

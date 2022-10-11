@@ -13,6 +13,7 @@ import 'package:fortuna_libya_representative/ui/screens/order/complete_order_det
 import 'package:fortuna_libya_representative/ui/screens/order/order_screen.dart';
 import 'package:fortuna_libya_representative/ui/screens/point/point_screen.dart';
 import 'package:fortuna_libya_representative/ui/screens/profile/profile_screen.dart';
+import 'package:fortuna_libya_representative/ui/screens/report_screen/report_pharm_screen.dart';
 import 'package:fortuna_libya_representative/ui/screens/support/support_screen.dart';
 
 import 'package:provider/provider.dart';
@@ -21,7 +22,6 @@ import '../ui/screens/auth_screens/langauge_screen.dart';
 import '../ui/screens/auth_screens/sign_up2_screen.dart';
 import '../ui/screens/auth_screens/sing_up_screen.dart';
 
-
 class RouterX {
   static Route<dynamic> generateRoute(RouteSettings settings) {
     switch (settings.name) {
@@ -29,14 +29,14 @@ class RouterX {
         return MaterialPageRoute(
           builder: (_) => ChangeNotifierProvider(
             create: (context) => AuthProvider(),
-            child:   SplashScreen(),
+            child: SplashScreen(),
           ),
         );
       case NavegatorConstant.language:
         return MaterialPageRoute(
           builder: (_) => ChangeNotifierProvider(
             create: (context) => AuthProvider(),
-            child:   const LangaugeScreen(),
+            child: const LangaugeScreen(),
           ),
         );
       case NavegatorConstant.login:
@@ -80,7 +80,6 @@ class RouterX {
           ),
         );
 
-
       case NavegatorConstant.order:
         return MaterialPageRoute(
           builder: (_) => ChangeNotifierProvider(
@@ -92,46 +91,39 @@ class RouterX {
         return MaterialPageRoute(
           builder: (_) => ChangeNotifierProvider(
             create: (context) => AuthProvider(),
-            child: CompleteOrderDetails(),
+            child: const CompleteOrderDetails(),
           ),
         );
       case NavegatorConstant.activeOrderDetails:
         return MaterialPageRoute(
           builder: (_) => ChangeNotifierProvider(
             create: (context) => AuthProvider(),
-            child: ActiveOrderDetails(),
+            child: const ActiveOrderDetails(),
           ),
         );
 
-        case NavegatorConstant.profile:
+      case NavegatorConstant.profile:
         return MaterialPageRoute(
           builder: (_) => ChangeNotifierProvider(
             create: (context) => AuthProvider(),
-            child: ProfileScreen(),
+            child: const ProfileScreen(),
           ),
         );
-  case NavegatorConstant.support:
+      case NavegatorConstant.support:
         return MaterialPageRoute(
           builder: (_) => ChangeNotifierProvider(
             create: (context) => AuthProvider(),
-            child: SupportScreen(),
+            child: const SupportScreen(),
           ),
         );
-case NavegatorConstant.point:
+      case NavegatorConstant.point:
         return MaterialPageRoute(
           builder: (_) => ChangeNotifierProvider(
             create: (context) => AuthProvider(),
-            child: PointScreen(),
+            child: const PointScreen(),
           ),
         );
 
-
-
-
-      // // case NavegatorConstant.searchHearing:
-      // //   return MaterialPageRoute(
-      // //     builder: (context) =>   SearchBarSessions(allItemsHearings: getIt<HearingProvider>().allItemsHearings),
-      // //   );
       case NavegatorConstant.otp:
         return MaterialPageRoute(
           builder: (_) => ChangeNotifierProvider(
@@ -139,113 +131,14 @@ case NavegatorConstant.point:
             child: OTPScreen(),
           ),
         );
-      // case NavegatorConstant.createNewPassword:
-      //   return MaterialPageRoute(
-      //     builder: (_) => ChangeNotifierProvider(
-      //       create: (context) => AuthProvider(),
-      //       child: NewPasswordScreen(),
-      //     ),
-      //   );
-      //
-      // case NavegatorConstant.naveBarApp:
-      //   return MaterialPageRoute(
-      //     builder: (context) => MultiProvider(providers: [
-      //       ChangeNotifierProvider.value(
-      //         value: getIt<APIProvider>(),
-      //         child: HomeScreen(),
-      //       ),
-      //       ChangeNotifierProvider.value(
-      //         value: getIt<HearingProvider>(),
-      //         child: ShowSessions(),
-      //       ),
-      //       ChangeNotifierProvider.value(
-      //         value: getIt<TaskProvider>(),
-      //         child: ShowTasks(),
-      //       ),
-      //       ChangeNotifierProvider.value(
-      //         value: getIt<AppProvider>(),
-      //         child: CalendarApp(),
-      //       ),
-      //     ], child: MainNavBar()),
-      //   );
-      // case NavegatorConstant.homeApp:
-      //   return MaterialPageRoute(
-      //     builder: (_) => ChangeNotifierProvider.value(
-      //       value: getIt<APIProvider>(),
-      //       child: HomeScreen(),
-      //     ),
-      //   );
-      // case NavegatorConstant.showHearing:
-      //   return MaterialPageRoute(
-      //     builder: (_) => ChangeNotifierProvider.value(
-      //       value: getIt<HearingProvider>(),
-      //       child: ShowSessions(),
-      //     ),
-      //   );
-      // case NavegatorConstant.addHearing:
-      //   return MaterialPageRoute(
-      //     builder: (_) => ChangeNotifierProvider.value(
-      //       value: getIt<HearingProvider>(),
-      //       child: AddSessions(),
-      //     ),
-      //   );
-      // case NavegatorConstant.showTask:
-      //   return MaterialPageRoute(
-      //     builder: (_) => ChangeNotifierProvider.value(
-      //       value: getIt<TaskProvider>(),
-      //       child: ShowTasks(),
-      //     ),
-      //   );
-      // case NavegatorConstant.addTask:
-      //   return MaterialPageRoute(
-      //     builder: (_) => ChangeNotifierProvider.value(
-      //       value: getIt<TaskProvider>(),
-      //       child: AddTaskScreen(),
-      //     ),
-      //   );
-      // case NavegatorConstant.showCases:
-      //   return MaterialPageRoute(
-      //     builder: (_) => ChangeNotifierProvider.value(
-      //       value: getIt<APIProvider>(),
-      //       child: ShowIssuesScreens(),
-      //     ),
-      //   );
-      // case NavegatorConstant.showConsulting:
-      //   return MaterialPageRoute(
-      //     builder: (_) => ChangeNotifierProvider.value(
-      //       value: getIt<APIProvider>(),
-      //       child: ShowConsultingScreens(),
-      //     ),
-      //   );
-      // case NavegatorConstant.showContract:
-      //   return MaterialPageRoute(
-      //     builder: (_) => ChangeNotifierProvider.value(
-      //       value: getIt<APIProvider>(),
-      //       child: ShowContractsScreens(),
-      //     ),
-      //   );
-      // case NavegatorConstant.showInvoices:
-      //   return MaterialPageRoute(
-      //     builder: (_) => ChangeNotifierProvider.value(
-      //       value: getIt<APIProvider>(),
-      //       child: ShowInvoicesScreens(),
-      //     ),
-      //   );
-      // case NavegatorConstant.calendarScreen:
-      //   return MaterialPageRoute(
-      //     builder: (_) => ChangeNotifierProvider.value(
-      //       value: getIt<APIProvider>(),
-      //       child: CalendarApp(),
-      //     ),
-      //   );
-      // case NavegatorConstant.notificationScreen:
-      //   return MaterialPageRoute(
-      //     builder: (_) => ChangeNotifierProvider.value(
-      //       value: getIt<APIProvider>(),
-      //       child: NotificationScreen(),
-      //     ),
-      //   );
-      //
+      case NavegatorConstant.reportPharm:
+        return MaterialPageRoute(
+          builder: (_) => ChangeNotifierProvider(
+            create: (context) => AuthProvider(),
+            child: ReportPharmScreen(),
+          ),
+        );
+
       default:
         return MaterialPageRoute(
           builder: (context) => Scaffold(
