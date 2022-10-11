@@ -1,18 +1,22 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-import 'package:fortuna_libya_representative/services/auth_provider.dart';
 
 import 'package:provider/provider.dart';
 import 'package:sms_autofill/sms_autofill.dart';
+import '../../../navigator/router_class.dart';
+import '../../../navigator/routes_const.dart';
 import '../../../resources/assets_manager.dart';
 import '../../../resources/color_manager.dart';
 import '../../../resources/font_manager.dart';
 import '../../../resources/styles_manager.dart';
+import '../../../services/auth_provider.dart';
 
 class OTPScreen extends StatelessWidget {
-  OTPScreen({Key? key}) : super(key: key);
-  TextEditingController otpController = TextEditingController();
+  final TextEditingController otpController = TextEditingController();
+   OTPScreen({Key? key}) : super(key: key);
+
 
   @override
   Widget build(BuildContext context) {
@@ -35,14 +39,14 @@ class OTPScreen extends StatelessWidget {
                   ),
                 ),
                 Text(
-                  'الرمز السري',
+                  'secretCode',
                   style: getBoldStyle(color: ColorManager.primary, fontSize: FontSize.s18),
-                ),
+                ).tr(),
                 SizedBox(height: 21.h),
                   Text(
-                    'قم بإدخال الرمز الذي وصل لإيميلك',
+                    'enterCode',
                     style: getMediumStyle(color: ColorManager.otpDesc, fontSize: FontSize.s14),
-                  ),
+                  ).tr(),
                   SizedBox(height: 40.h),
                   Padding(
                     padding:   EdgeInsets.symmetric(horizontal: 20.w),
@@ -72,20 +76,16 @@ class OTPScreen extends StatelessWidget {
                     width: MediaQuery.of(context).size.width,
                     height: 44.h,
                     padding: EdgeInsets.symmetric(horizontal: 16.w),
-                    child: ElevatedButton(onPressed: ()async {
-
+                    child: ElevatedButton(onPressed: provider.isLoading?null:()async {
+                      RouterClass.routerClass.navigateTo(NavegatorConstant.createNewPassword);
                     },
                         child:provider.isLoading?Row(children: [
-                          Text('تأكيد', style: getMediumStyle(color: ColorManager.white, fontSize: FontSize.s18.sp)),
+                          Text('confirm', style: getMediumStyle(color: ColorManager.white, fontSize: FontSize.s18.sp)).tr(),
                           SizedBox(width: 10.w,),
                           CircularProgressIndicator(color: ColorManager.white)
-                        ],):Text('تأكيد', style: getMediumStyle(color: ColorManager.white, fontSize: FontSize.s18.sp))
+                        ],):Text('confirm', style: getMediumStyle(color: ColorManager.white, fontSize: FontSize.s18.sp)).tr()
                     ),
                   ),
-
-
-
-
                 ],),
             );
           },

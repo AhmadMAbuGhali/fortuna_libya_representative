@@ -1,8 +1,8 @@
-
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+
 import 'package:provider/provider.dart';
 
 import '../../../navigator/router_class.dart';
@@ -14,20 +14,18 @@ import '../../../resources/styles_manager.dart';
 import '../../../services/auth_provider.dart';
 import '../../general_component/custom_text_form_filed.dart';
 
- class LoginScreen extends StatelessWidget {
 
-  final GlobalKey<FormState> logFormkey = GlobalKey<FormState>();
-  final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
+class SignUpScreen extends StatelessWidget {
 
-  LoginScreen({super.key});
+  final GlobalKey<FormState> signFormkey = GlobalKey<FormState>();
+   SignUpScreen({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      key: _scaffoldKey,
       body: Consumer<AuthProvider>(builder: (context, provider, x) {
         return Form(
-          key: logFormkey,
+          key: signFormkey,
           child: SingleChildScrollView(
             child: Column(
                 crossAxisAlignment: CrossAxisAlignment.center,
@@ -43,12 +41,25 @@ import '../../general_component/custom_text_form_filed.dart';
                     ),
                   ),
                   Text(
-                    'login',
+                    'createAccount',
                     style: getBoldStyle(color: ColorManager.primary, fontSize: FontSize.s18),
                   ).tr(),
                   SizedBox(height: 8.h),
                   CustomTextFeild(
-                    controller: provider.loginEmailController,
+                    controller: provider.forgetEmailController,
+                    hintText: 'typeRepresentativeName'.tr(),
+                    validator: (value) {
+                      if (value == null || value.isEmpty) {
+                        return 'representativeNameEmpty '.tr();
+                      }
+                      return null;
+                    },
+                    textInputAction: TextInputAction.next,
+                    keyboardType: TextInputType.name, label:  'representativeName'.tr(),
+                  ),
+
+                  CustomTextFeild(
+                    controller: provider.forgetEmailController,
                     hintText: 'typeEmail'.tr(),
                     validator: (value) {
                       if (value == null || value.isEmpty) {
@@ -60,55 +71,16 @@ import '../../general_component/custom_text_form_filed.dart';
                     keyboardType: TextInputType.name, label: 'email'.tr(),
                   ),
                   CustomTextFeild(
-                    controller:  provider.loginPasswordController,
-                    hintText: 'typePassword'.tr(),
+                    controller: provider.forgetEmailController,
+                    hintText: 'typePhoneNumber'.tr(),
                     validator: (value) {
                       if (value == null || value.isEmpty) {
-                        return 'passwordEmpty'.tr();
+                        return 'phoneNumberEmpty'.tr();
                       }
                       return null;
                     },
                     textInputAction: TextInputAction.next,
-                    keyboardType: TextInputType.name, label: 'password'.tr(),
-                    obscureText: true,
-                  ),
-
-                  Padding(
-                    padding: EdgeInsets.symmetric(horizontal: 16.w),
-                    child: Row(
-                      children: <Widget>[
-                        Transform.scale(
-                          scale: 1.5,
-                          child: Checkbox(
-                            shape: RoundedRectangleBorder(
-                                borderRadius: BorderRadius.circular(4.r)),
-                            checkColor: ColorManager.black,
-                            activeColor: ColorManager.primary,
-                            value: provider.isCheckLogin,
-                            onChanged: (bool? value) {
-                              provider.changeIsCheckLogin();
-                            },
-                          ),
-                        ),
-                        Text('rememberMe',
-                            style: getBoldStyle(
-                                color: ColorManager.black,
-                                fontSize: FontSize.s12.sp)).tr(), //Text
-                        const Spacer(),
-                        TextButton(
-                          onPressed: () {
-                            RouterClass.routerClass
-                                .navigateTo(NavegatorConstant.forgetPassword);
-                          },
-                          child: Text(
-                            'forgotPassword',
-                            style: getBoldStyle(
-                                color: ColorManager.black,
-                                fontSize: FontSize.s12.sp),
-                          ).tr(),
-                        )
-                      ],
-                    ),
+                    keyboardType: TextInputType.name, label: 'phoneNumber'.tr(),
                   ),
                   SizedBox(
                     height: 14.h,
@@ -120,8 +92,8 @@ import '../../general_component/custom_text_form_filed.dart';
                         height: 44.h,
                         child: ElevatedButton(onPressed: (){
                           RouterClass.routerClass
-                              .navigateTo(NavegatorConstant.homeApp);
-                        }, child: Text('login',style: getMediumStyle(color: ColorManager.white,fontSize: FontSize.s16),).tr())),
+                              .navigateTo(NavegatorConstant.signUp2);
+                        }, child: Text('next',style: getMediumStyle(color: ColorManager.white,fontSize: FontSize.s16),).tr())),
                   ),
                   SizedBox(
                     height: 16.h,
@@ -130,13 +102,14 @@ import '../../general_component/custom_text_form_filed.dart';
                     text: TextSpan(
                       children: <TextSpan>[
                         TextSpan(
-                            text: 'doNotHaveAccount'.tr(),
+                            text: 'haveAccount'.tr(),
                             style: getRegularStyle(color: ColorManager.primary,fontSize: FontSize.s14)),
                         TextSpan(
-                          text: 'createAccount'.tr(),
-                          style: getBoldStyle(color:ColorManager.primary,fontSize: FontSize.s14),
-                           recognizer:  TapGestureRecognizer()..onTap = () => RouterClass.routerClass.navigateToAndRemove(NavegatorConstant.signUp)
+                            text: 'sLogin'.tr(),
+                            style: getBoldStyle(color:ColorManager.primary,fontSize: FontSize.s14),
+                            recognizer:  TapGestureRecognizer()..onTap = () => RouterClass.routerClass.navigateToAndRemove(NavegatorConstant.login)
                         ),
+
                       ],
                     ),
                   ),

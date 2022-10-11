@@ -4,9 +4,9 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-import 'package:fortuna_libya_representative/navigator/routes_const.dart';
 
 import '../../../navigator/router_class.dart';
+import '../../../navigator/routes_const.dart';
 import '../../../resources/assets_manager.dart';
 
 class SplashScreen extends StatelessWidget{
@@ -14,7 +14,7 @@ class SplashScreen extends StatelessWidget{
   Widget build(BuildContext context) {
 
     Timer(const Duration(seconds: 3), () async {
-      RouterClass.routerClass.navigateToAndRemove(NavegatorConstant.onBoarding);
+      RouterClass.routerClass.navigateToAndRemove(NavegatorConstant.language);
     });
     return SafeArea(
       child: Scaffold(

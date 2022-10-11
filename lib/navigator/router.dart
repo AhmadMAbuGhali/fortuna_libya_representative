@@ -17,6 +17,10 @@ import 'package:fortuna_libya_representative/ui/screens/support/support_screen.d
 
 import 'package:provider/provider.dart';
 
+import '../ui/screens/auth_screens/langauge_screen.dart';
+import '../ui/screens/auth_screens/sign_up2_screen.dart';
+import '../ui/screens/auth_screens/sing_up_screen.dart';
+
 
 class RouterX {
   static Route<dynamic> generateRoute(RouteSettings settings) {
@@ -28,11 +32,32 @@ class RouterX {
             child:   SplashScreen(),
           ),
         );
+      case NavegatorConstant.language:
+        return MaterialPageRoute(
+          builder: (_) => ChangeNotifierProvider(
+            create: (context) => AuthProvider(),
+            child:   const LangaugeScreen(),
+          ),
+        );
       case NavegatorConstant.login:
         return MaterialPageRoute(
           builder: (_) => ChangeNotifierProvider(
             create: (context) => AuthProvider(),
             child: LoginScreen(),
+          ),
+        );
+      case NavegatorConstant.signUp:
+        return MaterialPageRoute(
+          builder: (_) => ChangeNotifierProvider(
+            create: (context) => AuthProvider(),
+            child: SignUpScreen(),
+          ),
+        );
+      case NavegatorConstant.signUp2:
+        return MaterialPageRoute(
+          builder: (_) => ChangeNotifierProvider(
+            create: (context) => AuthProvider(),
+            child: SignUpScreen2(),
           ),
         );
       case NavegatorConstant.onBoarding:
@@ -54,6 +79,7 @@ class RouterX {
             child: HomeScreen(),
           ),
         );
+
 
       case NavegatorConstant.order:
         return MaterialPageRoute(

@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:fortuna_libya_representative/model/introModel.dart';
-import 'package:fortuna_libya_representative/resources/color_manager.dart';
-import 'package:fortuna_libya_representative/resources/font_manager.dart';
 
+import '../../../model/introModel.dart';
 import '../../../navigator/router_class.dart';
 import '../../../navigator/routes_const.dart';
+import '../../../resources/color_manager.dart';
+import '../../../resources/font_manager.dart';
 import '../../../resources/styles_manager.dart';
 
 
@@ -100,9 +100,35 @@ class _IntroPageState extends State<OnBoardingScreen> {
                     }),
               ),
               SizedBox(
-                height: 1.h,
+                height: 30.h,
               ),
-              SizedBox(
+              Row(
+                crossAxisAlignment: CrossAxisAlignment.center,
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Container(
+                    width: 15.w,
+                    height: 15.h,
+                    decoration: BoxDecoration(
+                        color:_activeIndex==0?ColorManager.primary:ColorManager.onBordIndecator  ,
+                        shape: BoxShape.circle
+                    ),
+
+                  ),SizedBox(width: 10.w,),
+                  Container(
+                    width: 15.w,
+                    height: 15.h,
+                    decoration: BoxDecoration(
+                        color:_activeIndex==1?ColorManager.primary:ColorManager.onBordIndecator  ,
+                        shape: BoxShape.circle
+                    ),
+
+                  ),SizedBox(width: 10.w,),
+
+                ],
+              ),
+              SizedBox(height: 42.h,)
+              ,SizedBox(
                 width: MediaQuery.of(context).size.width-222.w,
                 height: 44.h,
                 child: ElevatedButton(onPressed: (){
@@ -114,30 +140,9 @@ class _IntroPageState extends State<OnBoardingScreen> {
                 },child:Text(_activeIndex==0?'التالي':'إبدأ الآن',style: getMediumStyle(color: ColorManager.white,fontSize: FontSize.s16) ,) ,),
               ),
               SizedBox(
-                height: 93.h,
+                height: 70.h,
               ),
-              // Row(
-              //   crossAxisAlignment: CrossAxisAlignment.center,
-              //   mainAxisAlignment: MainAxisAlignment.center,
-              //   children: [
-              //     Container(
-              //       width: 92.w,
-              //       height: 5.h,
-              //       color:_activeIndex==0?ColorManager.primary:ColorManager.indecatorBorder  ,
-              //     ),SizedBox(width: 10.w,),
-              //     Container(
-              //       width: 92.w,
-              //       height: 5.h,
-              //       color:_activeIndex==1?ColorManager.primary:ColorManager.indecatorBorder  ,
-              //     ),SizedBox(width: 10.w,),
-              //     Container(
-              //       width: 92.w,
-              //       height: 5.h,
-              //       color:_activeIndex==2?ColorManager.primary:ColorManager.indecatorBorder  ,
-              //     ),SizedBox(width: 10.w,),
-              //   ],
-              // ),
-              SizedBox(height: 42.h,)
+
             ],
           ),
         ),

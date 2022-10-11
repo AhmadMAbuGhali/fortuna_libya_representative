@@ -7,6 +7,10 @@ class NavegatorConstant {
   static const String forgetPassword = '/forgetPassword';
   static const String otp = '/OTPScreen';
   static const String createNewPassword = '/createNewPassword';
+
+  static const String language = '/language';
+  static const String signUp = '/signUp';
+  static const String signUp2 = '/signUp2';
   static const String naveBarApp = '/naveBar';
   static const String homeApp = '/home';
 
