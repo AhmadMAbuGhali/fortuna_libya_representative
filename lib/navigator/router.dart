@@ -13,6 +13,7 @@ import 'package:fortuna_libya_representative/ui/screens/order/complete_order_det
 import 'package:fortuna_libya_representative/ui/screens/order/order_screen.dart';
 import 'package:fortuna_libya_representative/ui/screens/point/point_screen.dart';
 import 'package:fortuna_libya_representative/ui/screens/profile/profile_screen.dart';
+import 'package:fortuna_libya_representative/ui/screens/report_screen/add_report_screen.dart';
 import 'package:fortuna_libya_representative/ui/screens/report_screen/report_pharm_screen.dart';
 import 'package:fortuna_libya_representative/ui/screens/support/support_screen.dart';
 
@@ -136,6 +137,13 @@ class RouterX {
           builder: (_) => ChangeNotifierProvider(
             create: (context) => AuthProvider(),
             child: ReportPharmScreen(),
+          ),
+        );
+        case NavegatorConstant.addReportPharm:
+        return MaterialPageRoute(
+          builder: (_) => ChangeNotifierProvider(
+            create: (context) => AuthProvider(),
+            child: AddReportPharmScreen(),
           ),
         );
 

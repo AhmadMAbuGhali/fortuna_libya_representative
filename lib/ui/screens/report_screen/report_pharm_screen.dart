@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:fortuna_libya_representative/navigator/router_class.dart';
+import 'package:fortuna_libya_representative/navigator/routes_const.dart';
 import 'package:fortuna_libya_representative/resources/color_manager.dart';
 import 'package:fortuna_libya_representative/resources/font_manager.dart';
 import 'package:fortuna_libya_representative/resources/styles_manager.dart';
@@ -50,7 +52,9 @@ class ReportPharmScreen extends StatelessWidget {
           ],),
         ),
         floatingActionButton: FloatingActionButton(
-          onPressed: (){},
+          onPressed: (){
+            RouterClass.routerClass.navigateTo(NavegatorConstant.addReportPharm);
+          },
           tooltip: 'add Report',
           child: const Icon(Icons.add),
         ),

@@ -25,5 +25,6 @@ class NavegatorConstant {
 
   static const String notificationScreen = '/notification';
   static const String reportPharm = '/reportPharm';
+  static const String addReportPharm = '/addReportPharm';
 
 }
