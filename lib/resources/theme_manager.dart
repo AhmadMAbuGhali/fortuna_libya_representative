@@ -1,5 +1,6 @@
 
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import 'color_manager.dart';
 import 'font_manager.dart';
@@ -26,7 +27,7 @@ ThemeData getApplicationTheme() {
             textStyle: getMediumStyle(
                 color: ColorManager.white, fontSize: FontSize.s18), backgroundColor: ColorManager.primary,
             shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(AppSize.s50)))),
+                borderRadius: BorderRadius.circular(8.r)))),
 
 
   );

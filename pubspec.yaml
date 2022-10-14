@@ -50,6 +50,7 @@ flutter:
     - assets/images/
     - assets/icon/
     - assets/language/
+    - assets/animation/
 
   fonts:
     - family: Dubai
