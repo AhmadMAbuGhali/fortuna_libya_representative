@@ -15,6 +15,7 @@ class CustomTextFeild extends StatelessWidget {
         this.keyboardType,
         this.suffixIcon,
         this.textInputAction,
+        this.textEnable,
         this.obscureText =false,
         required this.controller,
       }) : super(key: key);
@@ -26,6 +27,7 @@ class CustomTextFeild extends StatelessWidget {
   final TextInputAction? textInputAction;
   final String label;
   bool? obscureText=false;
+  bool? textEnable = true;
   @override
   Widget build(BuildContext context) {
     ScreenUtil.init(context, designSize: const Size(375, 812));
@@ -46,6 +48,7 @@ class CustomTextFeild extends StatelessWidget {
                 focusNode: FocusNode(),
                 obscureText:obscureText!? provider.showPass:false,
                 onFieldSubmitted:   null,
+                enabled: textEnable,
                 keyboardType: keyboardType ?? TextInputType.text,
                 textInputAction: textInputAction,
                 autovalidateMode: AutovalidateMode.onUserInteraction,

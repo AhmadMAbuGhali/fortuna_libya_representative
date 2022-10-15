@@ -1,5 +1,6 @@
 import 'dart:io';
 
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
@@ -21,7 +22,7 @@ class ProfileScreen extends StatefulWidget {
 
 class _ProfileScreenState extends State<ProfileScreen> {
   final scaffoldKey = GlobalKey<ScaffoldState>();
-  var formKey = GlobalKey<FormState>();
+  final GlobalKey<FormState> profileFormKey = GlobalKey<FormState>();
   File? imageFile;
   TextEditingController name = TextEditingController();
 
@@ -59,132 +60,164 @@ class _ProfileScreenState extends State<ProfileScreen> {
             ),
           ],
         ),
-        // body: Form(
-        //   key: formKey,
-        //   child: SingleChildScrollView(
-        //     child: Padding(
-        //       padding: const EdgeInsets.all(16.0),
-        //       child: Column(
-        //         children: [
-        //           Row(
-        //             mainAxisAlignment: MainAxisAlignment.center,
-        //             children: [
-        //               InkWell(
-        //                 onTap: () {
-        //                   showModalBottomSheet(
-        //                     context: context,
-        //                     builder: (builder) => bottomSheet(),
-        //                   );
-        //
-        //                   // setState(() {
-        //                   //   _getFromGallery();
-        //                   // });
-        //                 },
-        //                 child: Center(
-        //                   child: CircleAvatar(
-        //                     radius: 60,
-        //                     foregroundImage: imageFile == null
-        //                         ? Image.asset(
-        //                             ImageAssets.upload,
-        //                           ).image
-        //                         : Image.file(
-        //                             imageFile!,
-        //                             fit: BoxFit.cover,
-        //                           ).image,
-        //                     backgroundImage: imageFile == null
-        //                         ? Image.asset(
-        //                             ImageAssets.upload,
-        //                           ).image
-        //                         : Image.file(
-        //                             imageFile!,
-        //                             fit: BoxFit.cover,
-        //                           ).image,
-        //                   ),
-        //                 ),
-        //               ),
-        //             ],
-        //           ),
-        //           SizedBox(
-        //             height: 14.h,
-        //           ),
-        //           Center(
-        //             child: Text(
-        //               'تعديل صورة الملف الشخصي',
-        //               style: getBoldStyle(color: ColorManager.black),
-        //             ),
-        //           ),
-        //           SizedBox(
-        //             height: 20.h,
-        //           ),
-        //           //name
-        //           CustomTextFormFiled(
-        //             label: 'الإسم',
-        //             hint: 'محمد القاسم',
-        //             controller: name,
-        //             enable: false,
-        //           ),
-        //           SizedBox(
-        //             height: 16.h,
-        //           ),
-        //           //name of owner
-        //           CustomTextFormFiled(
-        //             label: 'البريد الالكتروني',
-        //             hint: 'email@example.com',
-        //             controller: name,
-        //             enable: false,
-        //           ),
-        //           //city
-        //           SizedBox(
-        //             height: 20.h,
-        //           ),
-        //           CustomTextFormFiled(
-        //             label: 'رقم المحمول',
-        //             hint: '+218 92-848418',
-        //             controller: name,
-        //             enable: true,
-        //           ),
-        //           //email
-        //           SizedBox(
-        //             height: 20.h,
-        //           ),
-        //
-        //           CustomTextFormFiled(
-        //             label: 'المدينة',
-        //             hint: 'طرابلس',
-        //             controller: name,
-        //             enable: true,
-        //           ),
-        //           //address
-        //
-        //           //password
-        //           SizedBox(
-        //             height: 20.h,
-        //           ),
-        //
-        //           CustomTextFormFiled(
-        //             label: 'كلمة المرور',
-        //             hint: '*******************',
-        //             controller: name,
-        //             enable: true,
-        //           ),
-        //           SizedBox(
-        //             height: 20.h,
-        //           ),
-        //           SizedBox(
-        //             height: 47,
-        //             width: double.infinity,
-        //             child: ElevatedButton(
-        //               onPressed: () {},
-        //               child: Center(
-        //                 child: Text('حفظ البيانات'),
-        //               ),
-        //             ),
-        //           )
-        //         ],
-        //       ),
-        //     ),
-        //   ),
-        // ),
+        body: Form(
+          key: profileFormKey,
+          child: SingleChildScrollView(
+            child: Padding(
+              padding: const EdgeInsets.all(16.0),
+              child: Column(
+                children: [
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      InkWell(
+                        onTap: () {
+                          showModalBottomSheet(
+                            context: context,
+                            builder: (builder) => bottomSheet(),
+                          );
+
+                          // setState(() {
+                          //   _getFromGallery();
+                          // });
+                        },
+                        child: Center(
+                          child: CircleAvatar(
+                            radius: 60,
+                            foregroundImage: imageFile == null
+                                ? Image.asset(
+                                    ImageAssets.upload,
+                                  ).image
+                                : Image.file(
+                                    imageFile!,
+                                    fit: BoxFit.cover,
+                                  ).image,
+                            backgroundImage: imageFile == null
+                                ? Image.asset(
+                                    ImageAssets.upload,
+                                  ).image
+                                : Image.file(
+                                    imageFile!,
+                                    fit: BoxFit.cover,
+                                  ).image,
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
+                  SizedBox(
+                    height: 14.h,
+                  ),
+                  Center(
+                    child: Text(
+                      'تعديل صورة الملف الشخصي',
+                      style: getBoldStyle(color: ColorManager.black),
+                    ),
+                  ),
+                  SizedBox(
+                    height: 20.h,
+                  ),
+                  //name
+                  CustomTextFeild(
+                    controller:name,
+                    textEnable: false,
+                    hintText: 'محمد قاسم'.tr(),
+                    validator: (value) {
+                      if (value == null || value.isEmpty) {
+                        return 'emailEmpty'.tr();
+                      }
+                      return null;
+                    },
+                    textInputAction: TextInputAction.next,
+                    keyboardType: TextInputType.name, label: 'الاسم'.tr(),
+                  ),
+                  SizedBox(
+                    height: 16.h,
+                  ),
+                  //name of owner
+                  CustomTextFeild(
+                    controller:name,
+                    textEnable: false,
+                    hintText: 'typeEmail'.tr(),
+                    validator: (value) {
+                      if (value == null || value.isEmpty) {
+                        return 'emailEmpty'.tr();
+                      }
+                      return null;
+                    },
+                    textInputAction: TextInputAction.next,
+                    keyboardType: TextInputType.name, label: 'email'.tr(),
+                  ),
+                  //city
+                  SizedBox(
+                    height: 20.h,
+                  ),
+                  CustomTextFeild(
+                    controller:name,
+                    hintText: '+123456789'.tr(),
+                    validator: (value) {
+                      if (value == null || value.isEmpty) {
+                        return 'emailEmpty'.tr();
+                      }
+                      return null;
+                    },
+                    textInputAction: TextInputAction.next,
+                    keyboardType: TextInputType.name, label: 'رقم الموبايل'.tr(),
+                  ),
+                  //email
+                  SizedBox(
+                    height: 20.h,
+                  ),
+
+                  CustomTextFeild(
+                    controller:name,
+                    hintText: 'طرابلس'.tr(),
+                    validator: (value) {
+                      if (value == null || value.isEmpty) {
+                        return 'emailEmpty'.tr();
+                      }
+                      return null;
+                    },
+                    textInputAction: TextInputAction.next,
+                    keyboardType: TextInputType.name, label: 'city'.tr(),
+                  ),
+                  //address
+
+                  //password
+                  SizedBox(
+                    height: 20.h,
+                  ),
+
+                  CustomTextFeild(
+                    controller:name,
+                    hintText: '***********************'.tr(),
+                    validator: (value) {
+                      if (value == null || value.isEmpty) {
+                        return 'emailEmpty'.tr();
+                      }
+                      return null;
+                    },
+                    textInputAction: TextInputAction.next,
+                    keyboardType: TextInputType.name, label: 'password'.tr(),
+                  ),
+                  SizedBox(
+                    height: 20.h,
+                  ),
+                  SizedBox(
+                    height: 47,
+                    width: double.infinity,
+                    child: ElevatedButton(
+                      onPressed: () {},
+                      child: Center(
+                        child: Text('حفظ البيانات'),
+                      ),
+                    ),
+                  )
+                ],
+              ),
+            ),
+          ),
+        ),
         drawer: DrawarWidget(
             function: () => scaffoldKey.currentState?.closeDrawer()),
       ),
