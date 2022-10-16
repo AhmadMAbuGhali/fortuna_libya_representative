@@ -7,8 +7,11 @@ import 'package:flutter_svg/svg.dart';
 
 import 'package:image_picker/image_picker.dart';
 
+import '../../../navigator/router_class.dart';
+import '../../../navigator/routes_const.dart';
 import '../../../resources/assets_manager.dart';
 import '../../../resources/color_manager.dart';
+import '../../../resources/font_manager.dart';
 import '../../../resources/styles_manager.dart';
 import '../../general_component/custom_text_form_filed.dart';
 import '../../general_component/drawar_widget.dart';
@@ -203,14 +206,19 @@ class _ProfileScreenState extends State<ProfileScreen> {
                   SizedBox(
                     height: 20.h,
                   ),
-                  SizedBox(
-                    height: 47,
+
+                  Container(
                     width: double.infinity,
-                    child: ElevatedButton(
-                      onPressed: () {},
-                      child: Center(
-                        child: Text('حفظ البيانات'),
-                      ),
+                    height: 50.h,
+                    margin: EdgeInsets.symmetric(horizontal: 16.w ),
+                    child: ElevatedButton(onPressed: (){
+                      RouterClass.routerClass.navigateToAndRemove(NavegatorConstant.homeApp);
+                    },style: ElevatedButton.styleFrom(
+                        backgroundColor: ColorManager.primary,
+                        side: BorderSide(color: ColorManager.white, width: 1.0),
+                        shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(8.r))), child: Text('حفظ التغيرات',
+                      style: getMediumStyle(color: ColorManager.white,fontSize: FontSize.s16),)
                     ),
                   )
                 ],
