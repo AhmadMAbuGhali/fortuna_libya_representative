@@ -17,6 +17,7 @@ import 'package:fortuna_libya_representative/ui/screens/profile/profile_screen.d
 import 'package:fortuna_libya_representative/ui/screens/report_screen/add_report_screen.dart';
 import 'package:fortuna_libya_representative/ui/screens/report_screen/report_pharm_screen.dart';
 import 'package:fortuna_libya_representative/ui/screens/support/support_screen.dart';
+import 'package:fortuna_libya_representative/ui/screens/task/task.dart';
 
 import 'package:provider/provider.dart';
 
@@ -145,6 +146,13 @@ class RouterX {
           builder: (_) => ChangeNotifierProvider(
             create: (context) => AuthProvider(),
             child: AddReportPharmScreen(),
+          ),
+        );
+        case NavegatorConstant.task:
+        return MaterialPageRoute(
+          builder: (_) => ChangeNotifierProvider(
+            create: (context) => AuthProvider(),
+            child: TaskScreen(),
           ),
         );
         case NavegatorConstant.notificationScreen:

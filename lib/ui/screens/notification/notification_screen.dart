@@ -8,9 +8,7 @@ import 'package:fortuna_libya_representative/ui/general_component/drawar_widget.
 
 class NotificationScreen extends StatelessWidget {
   NotificationScreen({Key? key}) : super(key: key);
-
   final GlobalKey<ScaffoldState> scaffoldKeyNotification = GlobalKey<ScaffoldState>();
-
   @override
   Widget build(BuildContext context) {
     return SafeArea(

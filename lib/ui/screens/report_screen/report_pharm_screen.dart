@@ -47,7 +47,7 @@ class ReportPharmScreen extends StatelessWidget {
             Expanded(child:ListView.builder(
                 itemCount: 5,
                 itemBuilder: (context,index){
-              return const WidgetTask();
+              return   WidgetTask(task: true,);
             }))
           ],),
         ),
@@ -64,7 +64,8 @@ class ReportPharmScreen extends StatelessWidget {
 }
 
 class WidgetTask  extends StatelessWidget {
-  const WidgetTask({Key? key}) : super(key: key);
+    bool task=true;
+    WidgetTask({Key? key,required this.task}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -87,7 +88,9 @@ class WidgetTask  extends StatelessWidget {
           children:   [
             Text('تقرير صيدلية السلام',style: getMediumStyle(color: ColorManager.black,fontSize: FontSize.s14),),
            const Spacer(),
-             TextButton(onPressed: (){}, child: Text('تعديل ',style: getMediumStyle(color: ColorManager.black,fontSize: FontSize.s12),))
+             Visibility(
+                 visible: task,
+                 child: TextButton(onPressed: (){}, child: Text('تعديل ',style: getMediumStyle(color: ColorManager.black,fontSize: FontSize.s12),)))
           ],
         ),
         Spacer(),
