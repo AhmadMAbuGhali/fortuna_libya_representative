@@ -14,8 +14,9 @@ import 'package:fortuna_libya_representative/ui/screens/order/complete_order_det
 import 'package:fortuna_libya_representative/ui/screens/order/order_screen.dart';
 import 'package:fortuna_libya_representative/ui/screens/point/point_screen.dart';
 import 'package:fortuna_libya_representative/ui/screens/profile/profile_screen.dart';
-import 'package:fortuna_libya_representative/ui/screens/report_screen/add_report_screen.dart';
-import 'package:fortuna_libya_representative/ui/screens/report_screen/report_pharm_screen.dart';
+import 'package:fortuna_libya_representative/ui/screens/report_screen_doctor/add_report_screen_doctor.dart';
+import 'package:fortuna_libya_representative/ui/screens/report_screen_doctor/report_doctor_screen.dart';
+
 import 'package:fortuna_libya_representative/ui/screens/support/support_screen.dart';
 import 'package:fortuna_libya_representative/ui/screens/task/task.dart';
 
@@ -24,6 +25,8 @@ import 'package:provider/provider.dart';
 import '../ui/screens/auth_screens/langauge_screen.dart';
 import '../ui/screens/auth_screens/sign_up2_screen.dart';
 import '../ui/screens/auth_screens/sing_up_screen.dart';
+import '../ui/screens/report_screen_pharm/add_report_screen.dart';
+import '../ui/screens/report_screen_pharm/report_pharm_screen.dart';
 
 class RouterX {
   static Route<dynamic> generateRoute(RouteSettings settings) {
@@ -146,6 +149,20 @@ class RouterX {
           builder: (_) => ChangeNotifierProvider(
             create: (context) => AuthProvider(),
             child: AddReportPharmScreen(),
+          ),
+        );
+      case NavegatorConstant.addReportDoctor:
+        return MaterialPageRoute(
+          builder: (_) => ChangeNotifierProvider(
+            create: (context) => AuthProvider(),
+            child: AddReportDoctorScreen(),
+          ),
+        );
+      case NavegatorConstant.reportDoctor:
+        return MaterialPageRoute(
+          builder: (_) => ChangeNotifierProvider(
+            create: (context) => AuthProvider(),
+            child: ReportDoctorScreen(),
           ),
         );
         case NavegatorConstant.task:

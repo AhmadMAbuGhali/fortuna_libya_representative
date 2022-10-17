@@ -93,7 +93,7 @@ class DrawarWidget extends StatelessWidget  {
                       GestureDetector(
                         onTap: () {
                           RouterClass.routerClass
-                              .navigateTo(NavegatorConstant.homeApp);
+                              .navigateTo(NavegatorConstant.task);
                         },
                         child: Row(
                           children: [
@@ -219,6 +219,62 @@ class DrawarWidget extends StatelessWidget  {
                             ),
                             Text(
                               "  النقاط",
+                              style: getBoldStyle(
+                                  color: ColorManager.black, fontSize: 18),
+                            ),
+                          ],
+                        ),
+                      ),
+                      SizedBox(
+                        height: 12.h,
+                      ),
+                      // point
+                      GestureDetector(
+                        onTap: (){
+                          RouterClass.routerClass
+                              .navigateTo(NavegatorConstant.reportPharm);
+                        },
+                        child: Row(
+                          children: [
+                            SvgPicture.asset(
+                              IconAssets.pharm,
+                              color: ColorManager.black,
+                              height: 20.h,
+                              width: 20.w,
+                            ),
+                            SizedBox(
+                              width: 30.w,
+                            ),
+                            Text(
+                              "  تقارير الصيدليات",
+                              style: getBoldStyle(
+                                  color: ColorManager.black, fontSize: 18),
+                            ),
+                          ],
+                        ),
+                      ),
+                      SizedBox(
+                        height: 12.h,
+                      ),
+
+                      GestureDetector(
+                        onTap: (){
+                          RouterClass.routerClass
+                              .navigateTo(NavegatorConstant.reportDoctor);
+                        },
+                        child: Row(
+                          children: [
+                            SvgPicture.asset(
+                              IconAssets.doctor,
+                              color: ColorManager.black,
+                              height: 20.h,
+                              width: 20.w,
+                            ),
+                            SizedBox(
+                              width: 30.w,
+                            ),
+                            Text(
+                              "  تقارير الأطباء",
                               style: getBoldStyle(
                                   color: ColorManager.black, fontSize: 18),
                             ),

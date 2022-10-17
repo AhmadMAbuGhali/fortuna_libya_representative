@@ -23,6 +23,8 @@ class IconAssets{
   static const String plus = '$ICON_PATH/plus.svg';
   static const String call = '$ICON_PATH/call.svg';
   static const String msg = '$ICON_PATH/msg.svg';
+  static const String pharm = '$ICON_PATH/pharm.svg';
+  static const String doctor = '$ICON_PATH/doctor.svg';
 
 
 }

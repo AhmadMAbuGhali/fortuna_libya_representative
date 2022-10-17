@@ -76,12 +76,7 @@ class WidgetTask  extends StatelessWidget {
        decoration: BoxDecoration(
         color: ColorManager.white,
         borderRadius: BorderRadius.circular(6.r),
-        boxShadow:  [ BoxShadow(
-          offset: const Offset(0, 6),
-          blurRadius: 42,
-          spreadRadius: 0.0,
-          color: ColorManager.shadow.withOpacity(0.4)
-        )],
+
       ),
       child: Column(children: [
         Row(
