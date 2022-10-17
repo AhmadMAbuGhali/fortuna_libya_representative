@@ -120,7 +120,7 @@ import '../../general_component/custom_text_form_filed.dart';
                         height: 44.h,
                         child: ElevatedButton(onPressed: (){
                           RouterClass.routerClass
-                              .navigateTo(NavegatorConstant.homeApp);
+                              .navigateTo(NavegatorConstant.task);
                         }, child: Text('login',style: getMediumStyle(color: ColorManager.white,fontSize: FontSize.s16),).tr())),
                   ),
                   SizedBox(

@@ -173,21 +173,28 @@ class DrawarWidget extends StatelessWidget  {
                         height: 12.h,
                       ),
                       //notification
-                      Row(
-                        children: [
-                          const Icon(
-                            Icons.notifications,
-                            color: Colors.black,
-                          ),
-                          SizedBox(
-                            width: 30.w,
-                          ),
-                          Text(
-                            " الإشعارات",
-                            style: getBoldStyle(
-                                color: ColorManager.black, fontSize: 18),
-                          ),
-                        ],
+                      GestureDetector(
+                        onTap: (){
+                          RouterClass.routerClass
+                              .navigateTo(NavegatorConstant.notificationScreen);
+
+                        },
+                        child: Row(
+                          children: [
+                            const Icon(
+                              Icons.notifications,
+                              color: Colors.black,
+                            ),
+                            SizedBox(
+                              width: 30.w,
+                            ),
+                            Text(
+                              " الإشعارات",
+                              style: getBoldStyle(
+                                  color: ColorManager.black, fontSize: 18),
+                            ),
+                          ],
+                        ),
                       ),
 
                       SizedBox(
@@ -306,23 +313,30 @@ class DrawarWidget extends StatelessWidget  {
                         height: 12.h,
                       ),
                       //logout
-                      Row(
-                        children: [
-                          SvgPicture.asset(
-                            IconAssets.logout,
-                            color: ColorManager.black,
-                            height: 20.h,
-                            width: 20.w,
-                          ),
-                          SizedBox(
-                            width: 30.w,
-                          ),
-                          Text(
-                            " تسجيل الخروج",
-                            style: getBoldStyle(
-                                color: ColorManager.black, fontSize: 18),
-                          ),
-                        ],
+                      GestureDetector(
+                        onTap: (){
+                          RouterClass.routerClass
+                              .navigateToAndRemove(NavegatorConstant.login);
+
+                        },
+                        child: Row(
+                          children: [
+                            SvgPicture.asset(
+                              IconAssets.logout,
+                              color: ColorManager.black,
+                              height: 20.h,
+                              width: 20.w,
+                            ),
+                            SizedBox(
+                              width: 30.w,
+                            ),
+                            Text(
+                              " تسجيل الخروج",
+                              style: getBoldStyle(
+                                  color: ColorManager.black, fontSize: 18),
+                            ),
+                          ],
+                        ),
                       ),
                     ],
                   ),

@@ -54,7 +54,7 @@ class MyApp extends StatelessWidget {
             navigatorKey: RouterClass.routerClass.navKey,
             theme:getApplicationTheme(),
             onGenerateRoute: RouterX.generateRoute,
-            initialRoute:NavegatorConstant.task
+            initialRoute:NavegatorConstant.splash
         );
       },
 
