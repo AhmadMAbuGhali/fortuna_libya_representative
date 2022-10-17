@@ -33,6 +33,7 @@ dependencies:
   lottie:
   dropdown_button2:
   dotted_border:
+
 dev_dependencies:
   flutter_test:
     sdk: flutter

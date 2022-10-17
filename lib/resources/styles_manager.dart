@@ -24,6 +24,8 @@ TextStyle getMediumStyle(
   return _getTextStyle(fontSize, FontWeightManager.medium, color);
 }
 
+
+
 // Light style
 
 TextStyle getLightStyle(
